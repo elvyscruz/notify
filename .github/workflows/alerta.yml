@@ -1,0 +1,14 @@
+name: enviar notifiacion
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  notify:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Enviar notificación a ntfy.sh
+        run: |
+          curl -d "🚀 Nuevo push realizado en $GITHUB_REPOSITORY por $GITHUB_ACTOR" https://ntfy.sh/devops-itla
+
